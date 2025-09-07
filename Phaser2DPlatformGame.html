@@ -3,47 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <title>Phaser Game</title>
-  <style>
-    body { margin: 0; font-family: sans-serif; }
-    #wrapper { max-width: 1480px; margin: auto; padding: 1rem; }
-    #gameBox { position: relative; width: 100%; aspect-ratio: 5.8 / 3; background: #000; }
-    #gameFrame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    #startOverlay {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.6); color: #fff; font-size: 2rem; cursor: pointer;
-    }
-    #closeBtn {
-      position: absolute; top: 8px; right: 8px; display: none;
-      background: #f00; color: #fff; border: none; padding: 0.3rem 0.6rem;
-      font-size: 1rem; cursor: pointer; border-radius: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="Css/style.css" />
 </head>
 <body>
+
+
   <div id="wrapper">
-    <h1>Phaser 2D Platform Game</h1>
-    <div id="gameBox">
-      <iframe id="gameFrame" title="Phaser Game"></iframe>
-      <div id="startOverlay" onclick="startGame()">点击开始</div>
-      <button id="closeBtn" onclick="stopGame()">X</button>
+    <h1>Phaser Demo</h1>
+    <div class="game-box" data-url="https://timeowhuang.github.io/4b/" data-width="1480" data-height="800">
+      <iframe class="game-frame" title="Phaser Game"></iframe>
+      <div class="start-overlay">点击开始</div>
+      <button class="close-btn">X</button>
     </div>
     <h2>游戏说明</h2>
     <p>此页面通过 iframe 镶嵌展示托管在 GitHub Pages 上的 Phaser.js 游戏。</p>
   </div>
-  <script>
-    const gameUrl = 'https://timeowhuang.github.io/4b/';
-    function startGame() {
-      const frame = document.getElementById('gameFrame');
-      frame.src = gameUrl;
-      document.getElementById('startOverlay').style.display = 'none';
-      document.getElementById('closeBtn').style.display = 'block';
-    }
-    function stopGame() {
-      const frame = document.getElementById('gameFrame');
-      frame.src = '';
-      document.getElementById('startOverlay').style.display = 'flex';
-      document.getElementById('closeBtn').style.display = 'none';
-    }
-  </script>
+
+  <div id="wrapper">
+    <h1>Phaser Demo</h1>
+    <div class="game-box" data-url="https://timeowhuang.github.io/LinkBasedGame_Eng/" data-width="800" data-height="680">
+      <iframe class="game-frame" title="Phaser Game"></iframe>
+      <div class="start-overlay">点击开始</div>
+      <button class="close-btn">X</button>
+    </div>
+    <h2>游戏说明</h2>
+    <p>此页面通过 iframe 镶嵌展示托管在 GitHub Pages 上的 Phaser.js 游戏。</p>
+  </div>
+
+
+
+
+
+  <script src="js/script.js"></script>
+
+
+
+
 </body>
 </html>
