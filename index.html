@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="portfolio()" x-init="init()" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio | Eren Huang</title>
+  <meta name="description" content="一个简洁、快速、响应式的个人作品集网站模板。使用 Tailwind CSS + Alpine.js。" />
+  <meta property="og:title" content="我的个人作品集" />
+  <meta property="og:description" content="Tailwind + Alpine 单文件模板" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://picsum.photos/seed/portfolio/1200/630" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          container: { center: true, padding: '1rem' },
+          colors: { brand: '#7c3aed' }
+        }
+      }
+    }
+  </script>
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    /* 可选：更顺滑的阴影与玻璃拟态 */
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.6); }
+    .glass-dark { backdrop-filter: blur(10px); background: rgba(10,10,10,0.4); }
+  </style>
+</head>
+
+<!-- ------------------------------------------分割线---------------------------------------------------- -->
+
+
+<body :class="theme==='dark' ? 'dark bg-neutral-900 text-neutral-100' : 'bg-neutral-50 text-neutral-900'">
+  <!-- 顶部导航 -->
+  <header class="sticky top-0 z-50 border-b border-neutral-200/60 dark:border-neutral-800/60 bg-white/80 dark:bg-neutral-900/80 glass glass-dark">
+    <div class="container max-w-6xl flex items-center justify-between py-3">
+      <a href="#home" class="font-semibold tracking-tight text-lg">Eren<span class="text-brand">.dev</span></a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#projects" class="hover:text-brand">Projects</a>
+        <a href="#experience" class="hover:text-brand">Experience</a>
+        <a href="#skills" class="hover:text-brand">Skills</a>
+        <a href="#contact" class="hover:text-brand">Contact</a>
+        <a href="#" class="px-3 py-1 rounded-full border border-brand/40 text-brand hover:bg-brand hover:text-white transition">下载简历</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button @click="toggleTheme()" class="px-2 py-1 rounded-md hover:bg-neutral-200/60 dark:hover:bg-neutral-800" :aria-label="theme==='dark' ? '切换到亮色' : '切换到暗色'">
+          <span x-show="theme==='dark'">🌙</span>
+          <span x-show="theme==='light'">☀️</span>
+        </button>
+        <button class="md:hidden p-2 rounded-md hover:bg-neutral-200/60 dark:hover:bg-neutral-800" @click="navOpen=!navOpen" aria-label="切换导航">☰</button>
+      </div>
+    </div>
+    <div class="md:hidden border-t border-neutral-200/60 dark:border-neutral-800/60" x-show="navOpen" x-transition>
+      <div class="container max-w-6xl py-3 flex flex-col gap-3">
+        <a @click="navOpen=false" href="#projects" class="hover:text-brand">Projects</a>
+        <a @click="navOpen=false" href="#experience" class="hover:text-brand">Experience</a>
+        <a @click="navOpen=false" href="#skills" class="hover:text-brand">Skills</a>
+        <a @click="navOpen=false" href="#contact" class="hover:text-brand">Contact</a>
+        <a href="#" class="px-3 py-1 w-max rounded-full border border-brand/40 text-brand hover:bg-brand hover:text-white transition">Resume</a>
+      </div>
+    </div>
+  </header>
+<!-- ------------------------------------------分割线---------------------------------------------------- -->
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="container max-w-6xl py-16 md:py-24 grid md:grid-cols-2 items-center gap-10">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Hi，I am <span class="text-brand">Eren Huang</span> 👋</h1>
+        <p class="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose">一名专注于 <strong>前端开发</strong> / <strong>游戏 UI/UX</strong> 的工程师与设计师，热爱把有趣的想法做成可用的产品。</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects" class="px-4 py-2 rounded-xl bg-brand text-white hover:opacity-90">查看项目</a>
+          <a href="#contact" class="px-4 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800">联系我</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+          <span>📍 San Jose, CA</span>
+          <span>🛠️ -------  </span>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="" alt="我的头像/展示图" class="rounded-2xl w-full shadow-xl" />
+        <div class="absolute -z-10 inset-0 blur-3xl bg-gradient-to-tr from-brand/20 via-fuchsia-400/10 to-sky-400/10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目 Projects -->
+  <section id="projects" class="py-16 md:py-20 border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <div class="container max-w-6xl">
+      <div class="flex items-end justify-between gap-6 flex-wrap">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">精选项目</h2>
+          <p class="mt-1 text-neutral-600 dark:text-neutral-300">从课程项目到独立作品，涵盖 Web、游戏与 UI/UX。</p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-sm" x-data="{ tabs: ['all','Web','Game','UI/UX'] }">
+          <template x-for="t in tabs" :key="t">
+            <button class="px-3 py-1 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-brand"
+              :class="filter===t ? 'bg-brand text-white border-brand' : ''" @click="filter = t"># <span x-text="t"></span></button>
+          </template>
+        </div>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="p in filteredProjects" :key="p.id">
+          <article class="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-xl transition bg-white dark:bg-neutral-900">
+            <a :href="p.link" target="_blank" class="block">
+              <img :src="p.image" :alt="p.title" class="aspect-video w-full object-cover group-hover:scale-[1.02] transition"/>
+              <div class="p-4">
+                <h3 class="font-semibold text-lg" x-text="p.title"></h3>
+                <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300 line-clamp-2" x-text="p.desc"></p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <template x-for="tag in p.tags" :key="tag">
+                    <span class="px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border border-neutral-200/70 dark:border-neutral-700/70" x-text="tag"></span>
+                  </template>
+                </div>
+              </div>
+            </a>
+          </article>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- 经历 Experience -->
+  <section id="experience" class="py-16 md:py-20 border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <div class="container max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold">工作与项目经历</h2>
+      <ol class="mt-8 relative border-s border-neutral-200 dark:border-neutral-800">
+        <li class="mb-10 ms-6">
+          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white">1</span>
+          <h3 class="font-semibold">前端实习生 @ Awesome Studio</h3>
+          <time class="block text-sm text-neutral-500">2024.06 - 2024.09</time>
+          <p class="mt-2 text-neutral-700 dark:text-neutral-300">参与设计系统建设、性能优化（Lighthouse +30 分），并与设计师协作迭代组件。</p>
+        </li>
+        <li class="mb-10 ms-6">
+          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white">2</span>
+          <h3 class="font-semibold">课程项目：抢金库（双人对战）</h3>
+          <time class="block text-sm text-neutral-500">2024 - 2025</time>
+          <p class="mt-2 text-neutral-700 dark:text-neutral-300">专注 2P 机制与局内平衡，进行 UI/UX 打磨与可玩性测试。</p>
+        </li>
+        <li class="ms-6">
+          <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white">3</span>
+          <h3 class="font-semibold">独立作品：Fire Rescue（叙事驱动）</h3>
+          <time class="block text-sm text-neutral-500">2025</time>
+          <p class="mt-2 text-neutral-700 dark:text-neutral-300">时间压力 + 连续抉择系统；可访问性 UI（心率、声源提示）。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 技能 Skills -->
+  <section id="skills" class="py-16 md:py-20 border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <div class="container max-w-5xl">
+      <h2 class="text-2xl md:3xl font-bold">技能栈</h2>
+      <div class="mt-8 grid sm:grid-cols-2 gap-6">
+        <template x-for="s in skills" :key="s.name">
+          <div class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+            <div class="flex items-center justify-between">
+              <span class="font-medium" x-text="s.name"></span>
+              <span class="text-sm text-neutral-500" x-text="s.level + '%'"
+              ></span>
+            </div>
+            <div class="mt-2 h-2 rounded-full bg-neutral-200 dark:bg-neutral-800">
+              <div class="h-2 rounded-full bg-brand" :style="'width:'+s.level+'%'"></div>
+            </div>
+            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300" x-text="s.note"></p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 Contact -->
+  <section id="contact" class="py-16 md:py-20 border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold">Contact Me</h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-300">欢迎合作、实习或内推交流。可邮件或通过表单留下信息。</p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <a class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow" href="mailto:you@example.com">
+          <h3 class="font-semibold">📧 邮件</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-300">thuan112@ucsc.edu</p>
+        </a>
+
+        <form @submit.prevent="sendMessage" class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+          <div class="grid gap-3">
+            <input x-model="form.name" required class="px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent" placeholder="你的名字" />
+            <input x-model="form.email" type="email" required class="px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent" placeholder="你的邮箱" />
+            <textarea x-model="form.message" required rows="4" class="px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent" placeholder="想说的话……"></textarea>
+            <button class="mt-1 px-4 py-2 rounded-xl bg-brand text-white hover:opacity-90">发送</button>
+            <p class="text-sm" x-show="form.success" x-transition>✅ 已模拟发送（请在 JS 中接入真实后端或 Form 服务）</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-sm text-neutral-500">
+    © <span x-text="new Date().getFullYear()"></span> Eren Huang. Built with Tailwind + Alpine.
+  </footer>
+
+  <!-- JSON-LD 基本结构化数据（可自行完善） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "url": "https://yourdomain.com",
+    "jobTitle": "Front-end / Game UI/UX",
+    "sameAs": [
+      "https://github.com/yourname",
+      "https://www.linkedin.com/in/yourname"
+    ]
+  }
+  </script>
+
+  
+  <!-- 逻辑脚本：Alpine 组件 -->
+  <script>
+    function portfolio() {
+      return {
+        // 主题与导航
+        theme: 'light',
+        navOpen: false,
+        filter: 'all',
+
+        // 数据区：项目与技能（按需改成你的实际内容）
+        projects: [
+          { id: 1, title: 'Game HUD Kit', desc: '可复用的游戏 HUD 组件库，包含血量、背包、任务追踪等。', tags: ['Game','UI/UX'], link: '#', image: '' },
+          { id: 2, title: 'StudyCreator', desc: '学习研究设计的对话式工具，前端使用 Alpine + Tailwind。', tags: ['Web','UI/UX'], link: '#', image: '' },
+          { id: 3, title: 'Rescue Narrative', desc: '叙事驱动的消防救援原型，强调时间压力与可访问性 UI。', tags: ['Game'], link: '#', image: '' },
+          { id: 4, title: 'Portfolio v2', desc: '从 0 到 1 的个人站点设计与实现，Pages 自动部署。', tags: ['Web'], link: '#', image: '' },
+          { id: 5, title: 'WoW UI Mod', desc: 'World of Warcraft UI 重设计课程项目。', tags: ['UI/UX','Game'], link: '#', image: '' },
+          { id: 6, title: 'Shop Helper', desc: '快速响应的商店助理原型游戏，包含冷却技能与满意度系统。', tags: ['Game'], link: '#', image: '' }
+        ],
+        get filteredProjects() {
+          if (this.filter === 'all') return this.projects
+          return this.projects.filter(p => p.tags.includes(this.filter))
+        },
+
+        skills: [
+          { name: 'HTML/CSS/Tailwind', level: 90, note: '熟悉语义化、响应式与组件化样式。' },
+          { name: 'JavaScript/Alpine', level: 85, note: '轻量交互、状态管理与组件封装。' },
+          { name: 'Phaser.js', level: 75, note: '2D 平台动作、碰撞、敌人 AI。' },
+          { name: 'Figma/原型', level: 80, note: '线框、交互稿、设计系统协作。' }
+        ],
+
+        // 表单（演示）
+        form: { name: '', email: '', message: '', success: false },
+        sendMessage() {
+          // TODO: 替换为你自己的后端接口 / Formspree / Getform 等
+          console.log('Form submit (demo):', this.form)
+          this.form.success = true
+          setTimeout(() => this.form.success = false, 3000)
+          this.form.name = this.form.email = this.form.message = ''
+        },
+
+        // 初始化 & 主题切换
+        init() {
+          const saved = localStorage.getItem('theme')
+          if (saved) { this.theme = saved }
+          else {
+            this.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          document.documentElement.classList.toggle('dark', this.theme === 'dark')
+        },
+        toggleTheme() {
+          this.theme = this.theme === 'dark' ? 'light' : 'dark'
+          localStorage.setItem('theme', this.theme)
+          document.documentElement.classList.toggle('dark', this.theme === 'dark')
+        }
+      }
+    }
+  </script>
+</body>
+</html>
