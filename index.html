@@ -115,12 +115,14 @@
             <a :href="p.link" target="_blank" class="block">
 
               <template x-if="p.images">
-                <div class="project-thumbs aspect-video w-full">
+                <div class="project-thumbs aspect-video h-48">
                   <template x-for="(img, idx) in p.images" :key="idx">
                     <img :src="img" :alt="p.title + ' screenshot ' + (idx + 1)" />
                   </template>
                 </div>
               </template>
+
+
               <template x-if="!p.images">
                 <img :src="p.image" :alt="p.title" class="aspect-video w-full object-cover group-hover:scale-[1.02] transition"/>
               </template>
