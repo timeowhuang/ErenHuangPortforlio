@@ -25,6 +25,7 @@
   </script>
   <!-- Alpine.js -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="Css/style.css" />
 
   <style>
     /* 可选：更顺滑的阴影与玻璃拟态 */
@@ -112,7 +113,18 @@
         <template x-for="p in filteredProjects" :key="p.id">
           <article class="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-xl transition bg-white dark:bg-neutral-900">
             <a :href="p.link" target="_blank" class="block">
-              <img :src="p.image" :alt="p.title" class="aspect-video w-full object-cover group-hover:scale-[1.02] transition"/>
+
+              <template x-if="p.images">
+                <div class="project-thumbs aspect-video w-full">
+                  <template x-for="(img, idx) in p.images" :key="idx">
+                    <img :src="img" :alt="p.title + ' screenshot ' + (idx + 1)" />
+                  </template>
+                </div>
+              </template>
+              <template x-if="!p.images">
+                <img :src="p.image" :alt="p.title" class="aspect-video w-full object-cover group-hover:scale-[1.02] transition"/>
+              </template>
+
               <div class="p-4">
                 <h3 class="font-semibold text-lg" x-text="p.title"></h3>
                 <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300 line-clamp-2" x-text="p.desc"></p>
@@ -238,7 +250,7 @@
           
           { id: 2, title: 'StudyCreator', desc: '学习研究设计的对话式工具，前端使用 Alpine + Tailwind。', tags: ['Web','UI/UX'], link: '#', image: '' },
          
-          { id: 3, title: 'Rescue Narrative', desc: '叙事驱动的消防救援原型，强调时间压力与可访问性 UI。', tags: ['Game'], link: '#', image: '' },
+          { id: 3, title: 'Rescue Narrative', desc: '叙事驱动的消防救援原型，强调时间压力与可访问性 UI。', tags: ['Game'], link: '#', image: 'https://picsum.photos/id/1011/800/600' },
          
           { id: 4, title: 'Portfolio v2', desc: '从 0 到 1 的个人站点设计与实现，Pages 自动部署。', tags: ['Web'], link: '#', image: '' },
           
@@ -246,7 +258,12 @@
           
           { id: 6, title: 'Shop Helper', desc: '快速响应的商店助理原型游戏，包含冷却技能与满意度系统。', tags: ['Game'], link: '#', image: '' },
 
-          { id: 7, title: 'Phaser Demo', desc: 'Phaser.js 游戏示例，通过 GitHub Pages 内嵌展示。', tags: ['Game'], link: 'Phaser2DPlatformGame.html', image: '' }
+          { id: 7, title: 'Phaser Demo', desc: 'Phaser.js 游戏示例，通过 GitHub Pages 内嵌展示。', tags: ['Game'], link: 'Phaser2DPlatformGame.html', images: [
+            'https://picsum.photos/id/1011/800/600',
+            'https://picsum.photos/id/1015/800/600',
+            'https://picsum.photos/id/1025/800/600'
+          ] }
+          
 
         ],
 
