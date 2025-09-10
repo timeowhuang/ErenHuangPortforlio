@@ -29,3 +29,29 @@ function initPhaserEmbeds() {
 }
 
 document.addEventListener('DOMContentLoaded', initPhaserEmbeds);
+
+
+
+// Active link highlighting for the TOC
+const tocLinks = document.querySelectorAll('.toc a');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    const id = entry.target.getAttribute('id');
+    const link = document.querySelector(`.toc a[href="#${id}"]`);
+    if(link){
+      if(entry.isIntersecting){ tocLinks.forEach(l=>l.classList.remove('active')); link.classList.add('active'); }
+    }
+  })
+},{ rootMargin: "-30% 0px -60% 0px", threshold: 0.01 });
+
+document.querySelectorAll('section[id]').forEach(sec=>observer.observe(sec));
+
+
+// Optional: smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth', block:'start'});
+    history.replaceState(null, '', a.getAttribute('href'));
+  });
+});

@@ -1,0 +1,365 @@
+
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adaptive HUD — Final Report (Web)</title>
+  <meta name="description" content="Adaptive, emotion-driven HUD for horror games — immersive & accessible.">
+  <link rel="stylesheet" href="./Css/style.css">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Adaptive HUD Systems · Final Report</div>
+      </div>
+      
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="meta" style="margin-top:10px;margin-bottom:8px">
+      <span class="badge"><span class="dot green"></span>Accessibility</span>
+      <span class="badge"><span class="dot red"></span>Horror UI</span>
+      <span class="badge">Figma · UX Research · Playtest</span>
+    </div>
+
+    <h1>Adaptive HUD — Final Report (Web)</h1>
+    <p class="lead">把文档内容转为网页展示</p>
+
+    <main>
+      <nav class="toc">
+        <h3>目录</h3>
+        <a href="#tldr">TL;DR</a>
+        <a href="#overview">Project Overview</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Our Solution</a>
+        <a href="#impact">Impact</a>
+        <a href="#brainstorm">Brainstorming</a>
+        <a href="#method">Methodologies</a>
+        <a href="#system">Design Systems</a>
+        <a href="#evaluation">Evaluations</a>
+        <a href="#conclusion">Conclusions & Future</a>
+      </nav>
+
+      <div>
+        <section id="tldr" class="card">
+          <h2>TL;DR · Why This Matters</h2>
+          <p>This project is important because we provide players with <b>immersion</b> by creating an adaptive HUD 
+            that integrates smoothly into the game world instead of being a static overlay. 
+            It <b>enhances emotional engagement</b> by fading less important information during moments of high tension to 
+            heighten suspense for players. This visual first design approach promotes accessibility for 
+            players with hearing impairments by providing <b>intuitive feedback</b> instead of relying on auditory feedback. </p>
+
+          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+          <div class="callout" style="margin-top:12px">(See below attached screenshots)</div>
+        </section>
+
+        <section id="overview" class="card">
+          <h2>Project Overview</h2>
+          <div class="kv">
+            <div class="k">Team Member</div>
+            <div class="v">
+              <li>· <b>Tinyu Xie</b> (UI design and user research)</li>
+              <li>· <b>Eren Huang</b> (Figma animations and UI design)</li>
+              <li>· <b>Xifan Luo</b> (Materials organize)</li>
+            </div>
+          </div>
+          <p>Our team Adaptive HUD Systems implemented a UI that would integrate into the feeling of the game and maximize immersion and 
+            accessibility for players who are deaf or hard of hearing. Our application considers moments of tension, 
+            sound based actions and on screen states, visual mapping them into usable visual indicators on a HUD. It does 
+            not limit audio options for the player but intelligently fades non-essential HUD elements to allow player active 
+            engagement when it matters most. We leveraged user research, and designed the interface with smart triggers to avoid
+             creating unnecessary unbalanced difficulty when the player is hyper aware due to action packed sequences. And thoughtful 
+             interfaces such as status pulses to contextualize a create a status moment, where the player can quickly appease their 
+             need to call up their full stats can keep a player engaged. Our intended user experience is for the HUD to be neatly and 
+             proactively embedded in the narrative framework to balance perceptibility for the game experience with disparity and the 
+             narrative sensibilities of emotional resonance and fairness for players.
+          </p>
+
+
+          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+        </section>
+
+        <section id="problem" class="card">
+          <h2>Problem</h2>
+          <p>In games like RE8, the accessibility menu allows subtitle customization but lacks deeper sensory substitution mechanisms. 
+            Players who can’t hear crucial audio cues (e.g., monster growls, heartbeat sounds, footsteps) 
+            may feel disconnected from the intended horror experience or face unfair difficulty.
+          </p>
+
+        </section>
+
+        <section id="solution" class="card">
+          <h2>Our Solution · Adaptive, Emotion‑Driven HUD</h2>
+          <h4>We introduced three major visual UI components into our project:  </h4>
+
+          <div class="grid">
+            <div class="col-4">
+              <div class="feature">
+                <span class="icon" aria-hidden="true"></span>
+                <h3>Heartbeat Meter (Health Bar Replacement)</h3>
+                <p><li>Displays player health using a pulsing, animated heart and BPM (beats per minute) value.</li>
+                   <li>The BPM increases when danger is nearby, mimicking the rising tension of a horror scene.</li>
+                  </p>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="feature">
+                <span class="icon" aria-hidden="true"></span>
+                <h3>Sound Meter (Player Noise Indicator)</h3>
+                <p>
+                  <li>Indicates how much noise the player is making (e.g., footsteps, movement).</li>
+                   <li>Helps hearing-impaired players understand their stealth level and avoid alerting enemies.</li>
+                </p>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="feature">
+                <span class="icon" aria-hidden="true"></span>
+                <h3>Eyeball Icon (Enemy Awareness Meter)</h3>
+                <p>
+                  <li>Reacts to nearby enemies.</li>
+                   <li>Pulsates slowly when being watched.</li>
+                   <li>Rapidly twitches when spotted by an enemy.</li>
+                   <li>Simulates the "being watched" feeling common in horror games using only visual feedback.</li>
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <p>These additions go beyond traditional HUD mechanics and introduce diegetic feedback, 
+            where the UI becomes part of the story experience, rather than just a tool.
+          </p>
+          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+        </section>
+
+        <section id="impact" class="card">
+          <h2>Impact on User Experience</h2>
+          <ul>
+            <li>For hearing-impaired players: These visuals substitute for key environmental sound cues, enabling full gameplay comprehension and enjoyment.</li>
+            <li>For all players: UI immersion is strengthened. The HUD adapts—fading or changing based on context—to increase narrative weight and emotional pacing.</li>
+            <li>For horror design: The system adds tension through uncertainty and reduced information while preserving fairness by displaying only the essential cues.</li>
+          </ul>
+        </section>
+
+        <section id="brainstorm" class="card">
+          <h2>Brainstorming Process & Wireframes</h2>
+          <p>We began our initial phase of ideation with a basic critique of horror games' reliance on sound. 
+            While horror games may utilize sound conventions to make the game function, as they are a staple of the genre, 
+            in many ways they also treat this system of gameplay as an exclusive limitation of what constitutes considered
+             gameplay choices. If it is worth considering, that this design dependency creates a horrible form of accessibility 
+             for deaf and hard of hearing players who not only have to sacrifice gameplay mechanics that are of key importance 
+             to some horror games, they also are unable to engage with the atmosphere of the game, which is part of that immersive 
+             and implicit gameplay experience. There you have the odd correlation between some horror games being immersive and the
+              conventionally sound dependent piece of gameplay creates a lower-scoring accessibility game and player experience.
+              </p><br>
+              
+              <p>Our main goal, then, was to create some visual-sensory substitute system that could convert 
+              vital auditory information into intuitive on-screen feedback. To organize our ideas, 
+              we classified the most important audio cues in horror gameplay to be visualized.
+            </p>
+
+          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+          <div class="placeholder small" style="margin-top:10px">（更新线框占位）</div>
+
+
+          <p>
+            <li><b>Fear and Character State:</b> We conceptualized a dynamic heartbeat monitor to replace or augment the traditional health bar.
+               This element would visualize the character's fear and physical state by increasing its pulsation frequency in proximity to
+                danger, directly translating the auditory cue of a racing heart into a visual one.</li><br>
+            <li><b>Player-Generated Noise: </b>To address stealth mechanics, which are fundamentally dependent on sound, we proposed a 
+              dedicated sound meter. This interface element provides players with real-time visual feedback
+               on the noise their actions generate, ensuring gameplay parity for those who cannot rely on auditory cues.</li><br>
+            <li><b>Enemy Awareness:</b> Representing enemy presence without compromising suspense was a key design challenge. 
+              We moved away from explicit indicators and conceptualized a subtle "awareness" icon, such as an eyeball. 
+              This icon would convey the feeling of being watched or targeted through subtle animations, like twitching or pulsing, 
+              preserving suspense while delivering critical information.</li>
+          </p>
+          
+
+        </section>
+
+        <section id="method" class="card">
+          <h2>Methodologies</h2>
+
+          <p>Our design process was initiated through generative research methods aimed at understanding the problem 
+            space and informing our design direction. This involved several key activities:
+          </p>
+
+          <h3>Generative Exploration</h3>
+          <ul>
+            <li><b>Peer Discussions: </b>We conducted informal talks with friends and peers to get their initial thoughts on the role 
+              of UI in horror games, as well as what challenges were faced by players with hearing disabilities. This was able to 
+              help us locate our core tension between displaying information and immersion.</li> <br>
+            <li><b>Brainstorming: </b>As detailed in the previous section, our team collaboratively brainstormed potential visual solutions 
+              for key auditory cues in horror games. This involved exploring various ways to represent character fear, 
+              player-generated noise, and enemy awareness visually.</li><br>
+            <li><b>Persona Development: </b>In order to ensure a user-centered design decision making process, we created a primary persona,
+               Alex Rivera. This fictive user model of our target audience, based on observed behaviours and motivations, helped 
+               encapsulate the target users needs, frustrations, and goals with immersive gaming experiences. Alex's profile reinforced
+                the elements of gameplay that focus on building atmosphere and the aversion to intrusive HUD elements, which helped 
+                guide our design evaluations.</li>
+
+          </ul>
+          <h3><b>User Research: </b>Gathering Qualitative Insights</h3>
+          <h4>In order to explore our initial ideas and identify usability problems, we set up a targeted user interview with Yang, 
+            a 22-year-old (senior) Computer-Science Game Design student and a prime candidate to provide insight given their experience
+             with immersive narrative horror games, specifically Resident Evil 7 and other games like Outlast. The interview centered 
+             on areas related to our adaptive UI concept:
+            
+          </h4>
+          
+          <ul>
+            <h4>Understanding the Rationale for HUD Fading:</h4>
+            <li><b>Question:</b> Does the adaptive, fading HUD concept make sense?</li>
+            <li><b>Answer:</b> “Absolutely. But if the fade happens while I’m sprinting from a monster, that will not be good.”</li>
+            <li><b>Design Insight:</b> This critical feedback indicated a possible failure in our initial assumption for HUD fading to always lead to greater immersion. This taught us the importance of context.</li>
+          </ul>
+
+          <ul>
+            <h4>Identifying Essential Always-Visible Information:</h4>
+            <li><b>Question:</b> Which info must remain visible?</li>
+            <li><b>Answer: </b> “Health, and heart rate. Anything else can dip out.”</li>
+            <li><b>Design Insight:</b> Yang's response provided clear guidance on the hierarchy of information. We recognized that certain elements are fundamental for moment-to-moment gameplay, regardless of the atmospheric context.</li>
+          </ul>
+
+          <ul>
+            <h4>Seeking Improvement Suggestions:</h4>
+            <li><b>Question: </b>What would you tweak?</li>
+            <li><b>Answer:</b> “Let me ping the HUD back briefly, maybe a tap to ‘check my watch.”</li>
+            <li><b>Design Insight:</b> This advice was a direct response to possible usability issues related to complete information deprivation. We were aware that players need some control over when they can access the information they have. As a result, we introduced a 0.5-second ‘status pulse’ on a button pressed, allowing players to check nonessential information quickly, and provide information without permanently shattering immersion.</li>
+          </ul>
+
+          <h3><b>Reflections and Iterations:</b></h3>
+          <p>Yang's feedback was invaluable and challenged some of our initial assumptions. For example, we were surprised to hear that fully losing the HUD was perceived, even when intended to enhance fear, as creating an unfair challenge. We learned how important it is to ensure not to confuse immersion and losing information.
+           <br><br>We also oversimplified our assumption about implementing a fully fading HUD to all situations. We learned that players categorize HUD elements based on their momentary need for it. With these insights, we gained clarity and were able to approach UI adaptation in a more complex way that preferentially provided relevant information, while fading out secondary information.
+           <br><br>Insights gained from this first round of user research informed all of our design decisions, and will inform the iterative reality of the process. With our future testing, we plan to implement more quantitative measures, like death counts, paired with subjective measures of tension to assess and improve upon our adaptive UI system.
+          </p>
+
+          <div class="callout">这些洞见促成了<b>情境敏感</b>与<b>可控唤出</b>的交互策略。</div>
+        </section>
+
+        <section id="system" class="card">
+          <h2>Design Systems</h2>
+          <div class="grid">
+            <div class="col-6">
+              <h3>太复杂，先放着回头再做</h3>
+              <ul>
+                <li><b>色彩：</b>绿=安全/正常，红=危险/受伤，中性色保证可读性。</li>
+                <li><b>字体：</b>极简无衬线，暗背景下高对比。</li>
+              </ul>
+              <h3>组件库</h3>
+              <ul>
+                <li>Heartbeat（含ECG波形与BPM动画）</li>
+                <li>Sound Meter（径向渐变弧响应强度）</li>
+                <li>Stealth Eye（眨眼/扫视/抽动）</li>
+                <li>标准元素（道具栏、罗盘等）</li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+            </div>
+          </div>
+          <hr>
+          <h3>状态与转场</h3>
+          <ul>
+            <li><b>受伤：</b>BPM飙升，绿转红，波形振幅增大。</li>
+            <li><b>死亡：</b>动画停止，ECG拉平。</li>
+            <li><b>治疗：</b>由红乱恢复为绿稳。</li>
+          </ul>
+        </section>
+
+        <section id="evaluation" class="card">
+          <h2>Evaluations</h2>
+          <p>To evaluate our adaptive UI prototype now that we had a working prototype, we applied a multi-stage evaluation process. This was initiated with our internal playtest to hone our primary user flow and followed by a round of moderated external playtests with three participants from our target user group. The playtest primarily served to validate our design hypotheses, surface usability problems, and inform future development goals.
+</p>
+          <h3>Initial Internal Playtesting & Iteration</h3>
+          <p>Our first iteration of the prototype was videos with static UI and a single button for transitions/interaction. Our internal playtest made us feel that it felt "too basic" and did not show the dynamic aspect of our concept. Based on that playtest, we made several key improvements before any external testing:
+</p>
+          <ul>
+            <li>We animated key UI elements like the stealth eye icon that scans back and forth as well as a heartbeat that pulses, to better portray their role, as seen above in the design system. </li>
+            <br><li>We built a landing page that acts as a main menu containing buttons for "Start Demo" and "Demo Selection" so that the player can navigate their experience.</li>
+            <br><li>We created a "Death UI" scenario to show how the UI would react to a critical moment in gameplay, with the heartbeat stopping, screen tinting red, and the screen then fading.</li>
+          </ul>
+          <p>These initial improvements created a more robust and interactive prototype for our external playtests.</p><br>
+          
+          <h3>Playtest</h3>
+          <div class="grid">
+            <div class="col-6">
+
+              <h4>Areas for Improvement</h4>
+              <ul>
+                <li>Visual Cohesion and Polish: A common thread was that the UI's visual style did not match an established horror atmosphere.  Testers described the fonts and design style as misplaced.  There were also some specific visuals objects mentioned, such as the BPM graphic appeared at a lower resolution than the other elements, and the item bar appeared to be a more separate layer rather than something that constitutes part of the game world.</li> 
+                <li>Content and Interactivity: Participants found some parts of the demo "simple and flat."  The item bar, which used placeholders with text like "items 1, 2, 3," was identified as feeling unfinished.  There was also a hope for more dynamic animations, to make the UI feel more 'alive.'</li> 
+                <li>UI Clarity and Confusion: The presence of certain elements caused confusion. One user noted they did not understand the function of a "lighting and a loading bar" icon in the suspense demo which clearly indicated unclear design.</li> 
+                <li>Technical Issues: A significant technical bug was discovered where the demo video would loop at the end, preventing testers from accessing other scenarios. </li> 
+              </ul>
+
+            </div>
+            <div class="col-6">
+              <h4>Positive Feedback: Core Concept Validation</h4>
+              <ul>
+                <li>Overall, across all the playtests, all participants felt positively about the core concept of the adaptive UI. They felt the system was intuitive and were able to understand the system's purpose immediately after using it. All participants agreed that they could see how using this dynamic UI would increase immersion in an actual game experience, especially in horror games and also help people with hearing disability to better immerse into the game as well.</li>
+                <li>The heartbeat indicator received praise from users primarily because it served as an effective medium that conveyed feeling, both emotional and physical. Additionally, the ability for non-essential UI elements to go away when a scene becomes tense was considered an effective means to provoke suspense.</li>
+
+              </ul>
+              <h4>External Playtesting: Key Findings</h4>
+              <ul><p>We conducted one to one unguided playtests with 3 participants to gather useful qualitative feedback from them. Participants were asked to think aloud during their unguided session, and then complete a short interview
+              </p></ul>
+            </div>
+          </div>
+
+          <h3>Conclusions & Insights</h3>
+          <p>The evaluation phase gave us several key insights that will inform the next stage of our project:</p>
+          <ol>
+            <li>Insight 1: The core concept is validated. The core idea is confirmed. All the participants comprehend and would like an adaptive UI that shifts according to in game tension in order to help immersion and useability.</li>
+            <li>Insight 2: Visual execution is as important as the concept. A solid concept can fall over simply because the aesthetics were poor. In order to maintain immersion, the UI style and font, as well as quality, have to feel native to the world.</li>
+            <li>Insight 3: Unclear elements cause frustration. Any UI element that does not have a clear and immediate function reduces the overall usability of the software experience and interrupts immersion.</li>
+            <li>Insight 4: Users desire a "living" interface. A truly adaptive UI should provide an experience that is responsive and feels dynamic rather than just coming and going. More subtle animations will likely produce a greater level of engagement.</li>
+          </ol>
+        </section>
+
+        <section id="conclusion" class="card">
+          <h2>Recommendations & Future Work</h2>
+          <p>Based on our conclusions, the team has established a clear action plan to address the feedback gathered during playtesting:</p>
+          <ul>
+            <h3>Enhance Visual Cohesion:</h3>
+            <li>Recreate UI assets in appropriately dark style and fonts that fits the horror vibe</li>
+            <li>Replace the low res BPM graphic with a higher res one</li>
+            <li>Make the item bar semi transparent so that it fits better within the game.</li>
+
+            <h3>Enhance Visual Cohesion:</h3>
+            <li>Change placeholder titles on the item bar with actual icons or names.</li>
+            <li>Add more animation in the UI, for example, the shoot button could pulse, or the screen could track enemy movement.</li>
+           
+            <h3>Improve UI Clarity:</h3>
+            <li>Remove or redesign the confusing lighting and loading bar icons, so every piece is functional and least confusing.</li>
+            <li>Add a brief note at the beginning of the demo to clarify that it's a UI demo and not a full game.</li>
+            
+            <h3>Resolve Technical Bugs:</h3>
+            <li>Fix the video looping issue, so the demo goes through all demos smoothly.</li>
+
+
+          </ul>
+          <!-- >
+           <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+          <p style="margin-top:10px; color:#98a2b3">（图片位均为占位，按需替换为你的素材文件路径即可）
+          </p>-->
+        </section>
+
+        <section class="card">
+        </section>
+      </div>
+    </main>
+
+
+    <footer>© Adaptive HUD Systems · Web 版报告模板</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
