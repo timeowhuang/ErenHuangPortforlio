@@ -89,7 +89,8 @@
         </div>
       </div>
       <div class="relative">
-        <img src="" alt="我的头像/展示图" class="rounded-2xl w-full shadow-xl" />
+        <img src="./image/profile.jpg" style="width:600px; height:600px; border-radius:50%; object-fit:cover;" 
+        alt="我的头像/展示图" class="rounded-2xl w-full shadow-xl" />
         <div class="absolute -z-10 inset-0 blur-3xl bg-gradient-to-tr from-brand/20 via-fuchsia-400/10 to-sky-400/10"></div>
       </div>
     </div>
@@ -194,30 +195,43 @@
     </div>
   </section>
 
-  <!-- 联系 Contact -->
-  <section id="contact" class="py-16 md:py-20 border-t border-neutral-200/60 dark:border-neutral-800/60">
-    <div class="container max-w-3xl">
-      <h2 class="text-2xl md:text-3xl font-bold">Contact Me</h2>
-      <p class="mt-2 text-neutral-600 dark:text-neutral-300">欢迎合作、实习或内推交流。可邮件或通过表单留下信息。</p>
+<!-- 联系 Contact -->
+<section id="contact" class="py-16 md:py-20 border-t border-neutral-200/60 dark:border-neutral-800/60">
+  <div class="container max-w-4xl">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Contact Me</h2>
+    <div class="flex flex-wrap gap-4">
 
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <a class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow" href="mailto:you@example.com">
-          <h3 class="font-semibold">📧 邮件</h3>
-          <p class="text-sm text-neutral-600 dark:text-neutral-300">thuan112@ucsc.edu</p>
-        </a>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/timeowhuang" target="_blank"
+         class="flex-1 min-w-[150px] p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center hover:shadow transition">
+        <div class="font-semibold">💼 LinkedIn</div>
+        <div class="text-sm text-neutral-600 dark:text-neutral-300">/timeowhuang</div>
+      </a>
 
-        <form @submit.prevent="sendMessage" class="p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-          <div class="grid gap-3">
-            <input x-model="form.name" required class="px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent" placeholder="你的名字" />
-            <input x-model="form.email" type="email" required class="px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent" placeholder="你的邮箱" />
-            <textarea x-model="form.message" required rows="4" class="px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-transparent" placeholder="想说的话……"></textarea>
-            <button class="mt-1 px-4 py-2 rounded-xl bg-brand text-white hover:opacity-90">发送</button>
-            <p class="text-sm" x-show="form.success" x-transition>✅ 已模拟发送（请在 JS 中接入真实后端或 Form 服务）</p>
-          </div>
-        </form>
-      </div>
+      <!-- GitHub -->
+      <a href="https://github.com/timeowhuang" target="_blank"
+         class="flex-1 min-w-[140px] p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center hover:shadow transition">
+        <div class="font-semibold">🐙 GitHub</div>
+        <div class="text-sm text-neutral-600 dark:text-neutral-300">github.com/timeowhuang</div>
+      </a>
+      
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/timeowhuang" target="_blank"
+         class="flex-1 min-w-[150px] p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center hover:shadow transition">
+        <div class="font-semibold">📸 Instagram</div>
+        <div class="text-sm text-neutral-600 dark:text-neutral-300">@timeohuang</div>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:thuan112@ucsc.edu"
+         class="flex-1 min-w-[150px] p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center hover:shadow transition">
+        <div class="font-semibold">📧 Email</div>
+        <div class="text-sm text-neutral-600 dark:text-neutral-300">thuan112@ucsc.edu <br>timeow.huang@gmail.com</div>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <footer class="py-10 text-center text-sm text-neutral-500">
     © <span x-text="new Date().getFullYear()"></span> Eren Huang. Built with Tailwind + Alpine.
@@ -311,5 +325,7 @@
       }
     }
   </script>
+
+  
 </body>
 </html>
