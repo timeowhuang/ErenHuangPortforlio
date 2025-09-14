@@ -54,7 +54,10 @@
             heighten suspense for players. This visual first design approach promotes accessibility for 
             players with hearing impairments by providing <b>intuitive feedback</b> instead of relying on auditory feedback. </p>
 
-          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+          <div class="placeholder"><img src = "./image/accessiblityScreenShot1.jpg" alt="screenshot"></div>
+          <div class="placeholder"><img src = "./image/accessiblityScreenShot2.jpg" alt="screenshot"></div>
+          <div class="placeholder"><img src = "./image/accessiblityScreenShot3.jpg" alt="screenshot"></div>
+
           <div class="callout" style="margin-top:12px">(See below attached screenshots)</div>
         </section>
 
@@ -81,7 +84,7 @@
           </p>
 
 
-          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+        <!--  <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>  -->
         </section>
 
         <section id="problem" class="card">
@@ -134,7 +137,7 @@
           <p>These additions go beyond traditional HUD mechanics and introduce diegetic feedback, 
             where the UI becomes part of the story experience, rather than just a tool.
           </p>
-          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
+          <!--  <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div> -->
         </section>
 
         <section id="impact" class="card">
@@ -163,9 +166,6 @@
               we classified the most important audio cues in horror gameplay to be visualized.
             </p>
 
-          <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
-          <div class="placeholder small" style="margin-top:10px">（更新线框占位）</div>
-
 
           <p>
             <li><b>Fear and Character State:</b> We conceptualized a dynamic heartbeat monitor to replace or augment the traditional health bar.
@@ -180,6 +180,58 @@
               preserving suspense while delivering critical information.</li>
           </p>
           
+          <br>
+          <p>A major decision during this phase was to develop an adaptive HUD. To reduce informational clutter and 
+            enhance immersion, we envisioned that non-playable HUD elements would fade away as tension rose, thus naturally
+             drawing the viewer's eye to new, relevant visual icons. This basic plan mapped out an intuitive visual system 
+             that will both address a necessary accessibility challenge while engaging a wider audience in a deep gameplay experience.
+            
+             <br><br>Below is the initial wireframe that we came up with during our initial brainstorming process.
+          </p>
+
+
+
+          <div class="placeholder"><img src = "./image/Initial Wireframes1.png" alt="screenshot"></div>
+          <div class="placeholder"><img src = "./image/Initial Wireframes2.png" alt="screenshot"></div>
+          <div class="placeholder small" style="margin-top:10px">（更新线框占位）</div>
+
+          <p>As part of our visual ideation process, we created wireframes to experiment with different UI layouts and states 
+            based on gameplay tension. These wireframes, developed during Milestone 3, allowed us to explore how information density
+             and icon prominence could change in real time based on the player’s environment.</p>
+           
+
+          <p>We began by sketching out a "Normal State" HUD, which included common elements such as ammo count, 
+            inventory slots, compass direction, and a standard health bar. This gave us a baseline for how much 
+            information a player expects during safe gameplay.
+          </p>
+
+          <p>From there, we designed a "Suspense State" HUD, reducing clutter and emphasizing tension-based feedback: 
+            a pulsing heart (replacing the health bar), flashlight battery level, sound meter for footstep noise, 
+            and a subtle eye icon for enemy detection. These designs prioritized emotional focus, giving the player 
+            fewer distractions while also reinforcing their sense of vulnerability.
+          </p>
+
+          <div class="placeholder"><img src = "./image/Updated Wireframes.png" alt="screenshot"></div> 
+
+          <p> Throughout the wireframing process, we constantly asked: What does the player need to see right now? and 
+            How can we visualize tension without using text or sound? These questions guided our decisions around hierarchy,
+             size, and placement of elements. For example, the heartbeat icon was moved to the center during high tension 
+             moments to mirror rising panic, while the compass was removed entirely to keep attention on immediate danger 
+             rather than navigation. 
+            </p>
+
+            <p>These wireframes helped us validate the core interaction philosophy of our project: that HUD elements should
+               respond dynamically to the narrative arc, and support players with different sensory needs by replacing 
+               auditory tension with visual and spatial UI behaviors.
+            </p>
+
+            <p>
+              To better communicate our adaptive UI vision, we created several mockup scenarios simulating what the
+               HUD would look like in real gameplay environments. These early-stage concept visuals allowed us to express 
+               not only what UI elements appear, but also when and how they react to game tension and player actions.
+            </p>
+
+          <div class="placeholder"><img src = "./image/mockup scenarios.png" alt="screenshot"></div> 
 
         </section>
 
@@ -245,33 +297,59 @@
 
         <section id="system" class="card">
           <h2>Design Systems</h2>
-          <div class="grid">
+          <div class="">
             <div class="col-6">
-              <h3>太复杂，先放着回头再做</h3>
+              <h3> </h3>
+              <p>
+                To bring the adaptive horror UI to life, we developed a comprehensive set of design system components and 
+                animations in Figma, specifically tailored to support the suspenseful atmosphere central to our gameplay. 
+                Our design system emphasizes not only the conveyance of essential gameplay information but also emotional 
+                reinforcement—particularly benefiting players who rely primarily on visual feedback rather than auditory cues.
+              </p>
+
+              <h3>Design Vision & Principles</h3>
+              <p>
+                Our core design philosophy integrates HUD elements seamlessly into the game environment, focusing on
+                 modularity, clarity, simplicity, and accessibility. We established guidelines to ensure the UI enhances 
+                 immersion without overwhelming or confusing the player.
+              </p>
               <ul>
                 <li><b>色彩：</b>绿=安全/正常，红=危险/受伤，中性色保证可读性。</li>
                 <li><b>字体：</b>极简无衬线，暗背景下高对比。</li>
               </ul>
-              <h3>组件库</h3>
+              <h3>Typography & Color Styles</h3>
               <ul>
                 <li>Heartbeat（含ECG波形与BPM动画）</li>
                 <li>Sound Meter（径向渐变弧响应强度）</li>
                 <li>Stealth Eye（眨眼/扫视/抽动）</li>
                 <li>标准元素（道具栏、罗盘等）</li>
               </ul>
+
+               <h3>Component Library</h3>
+
+               <h3>HUD Animation & Interaction Patterns</h3>
+
+
             </div>
             <div class="col-6">
               <div class="placeholder"><img src = "./image/HUDStart.png" alt="screenshot"></div>
             </div>
           </div>
+
+
+
+
           <hr>
-          <h3>状态与转场</h3>
+          <h3>UI Transition Philosophy</h3>
           <ul>
             <li><b>受伤：</b>BPM飙升，绿转红，波形振幅增大。</li>
             <li><b>死亡：</b>动画停止，ECG拉平。</li>
             <li><b>治疗：</b>由红乱恢复为绿稳。</li>
           </ul>
         </section>
+
+
+
 
         <section id="evaluation" class="card">
           <h2>Evaluations</h2>
